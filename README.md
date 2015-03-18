@@ -1,10 +1,7 @@
-oblagio admin adalah Core Admin yang sudah jadi teridiri dari login , hak akses menu , master menu , role , dan user ,
-silah kan di commit jika ada kekurangan , semoga team kita sukses , da kur duaan teamna ge -_-
+oblagio admin adalah source code backend  website berbasis framework YII1 yang terdiri dari user , role , hak akses , login , logout
 
+cara instalasi
+1.download / clone source code
+2.export oblagio.sql
 username : reza
 password : reza123
-
-atau 
-
-username : tenyom
-password : tenyom123
