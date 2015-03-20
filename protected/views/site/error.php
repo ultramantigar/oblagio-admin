@@ -13,3 +13,7 @@ $this->breadcrumbs=array(
 <div class="error">
 <?php echo CHtml::encode($message); ?>
 </div>
+<br/>
+<div>
+<?php echo CHtml::link('Go to Home Page Click Here!' , ['/site'] , ['style' => 'color:blue;'] ); ?>
+</div> 

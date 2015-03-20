@@ -7,6 +7,9 @@
 			{
 				$model = User::model()->findByPk(Yii::app()->user->id);
 				return $model;
+			}else{
+				throw new CHttpException(403 , "Anda Belum Login!!");
+				
 			}
 		}	
 	}

@@ -7,20 +7,32 @@ class RoleController extends Controller
 	public function filters()
 	{
 		return array(
-			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
+			'accessControl', 
+			'postOnly + delete', 
 		);
 	}
 
+	public function allow() // fungsi mengecek apakah role user di autorisasi apa kaga di database
+	{
+		$cek_menu = menu::cek_menu();
+		if(empty($cek_menu))
+		{
+			$allow = array();
+		}else{
+			$allow = array('allow',
+			
+					'actions'=>array('index','create' ,'hapus' , 'update'),
+					'users'=>array('@'),
+			);
+		}
+		 return $allow;
+	}
 	
 	public function accessRules()
 	{
 		return array(
 			
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index','create' ,'hapus' , 'update'),
-				'users'=>array('@'),
-			),
+			$this->allow(),
 			
 			array('deny',  // deny all users
 				'users'=>array('*'),

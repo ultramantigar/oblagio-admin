@@ -36,6 +36,7 @@ class SiteController extends Controller
 	 */
 	public function actionError()
 	{
+		$this->layout = false;
 		if($error=Yii::app()->errorHandler->error)
 		{
 			if(Yii::app()->request->isAjaxRequest)
@@ -45,9 +46,7 @@ class SiteController extends Controller
 		}
 	}
 
-	/**
-	 * Displays the contact page
-	 */
+	/*
 	public function actionContact()
 	{
 		$model=new ContactForm;
@@ -71,9 +70,7 @@ class SiteController extends Controller
 		$this->render('contact',array('model'=>$model));
 	}
 
-	/**
-	 * Displays the login page
-	 */
+	*/
 	public function actionLogin()
 	{
 		$this->layout = '//layouts/administrator/login';

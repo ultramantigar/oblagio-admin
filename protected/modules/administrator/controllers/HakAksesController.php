@@ -12,15 +12,26 @@ class HakAksesController extends Controller
 		);
 	}
 
+	public function allow() // fungsi mengecek apakah role user di autorisasi apa kaga di database
+	{
+		$cek_menu = menu::cek_menu();
+		if(empty($cek_menu))
+		{
+			$allow = array();
+		}else{
+			$allow = array('allow', 
+				'actions'=>array('index','update'),
+				'users'=>array('@'),
+			);
+		}
+		 return $allow;
+	}
 	
 	public function accessRules()
 	{
 		return array(
-			
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index','update'),
-				'users'=>array('@'),
-			),
+			$this->allow()
+			,
 			
 			array('deny',  // deny all users
 				'users'=>array('*'),

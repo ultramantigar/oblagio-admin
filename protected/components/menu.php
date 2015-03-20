@@ -42,5 +42,20 @@
 
 			return $hasil;
 		}
+		
+		public static function cek_menu()
+		{
+			$db = Yii::app()->db;
+			$controller = Yii::app()->controller->id;
+			$role_id = identitas::attribute()->role_id;
+			$menu_id = $db->createCommand()
+				->select('menu_id')
+				->from('hak_akses')
+				->join('menu' ,'menu.id=hak_akses.menu_id')
+				->join('role' , 'role.id=hak_akses.role_id')
+				->where('controller=:controller AND role_id=:role_id' , [':controller' => $controller , ':role_id' => $role_id])
+				->queryScalar();
+			return $menu_id;
+		}
 
 	}
