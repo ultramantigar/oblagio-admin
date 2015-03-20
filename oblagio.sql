@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50532
 File Encoding         : 65001
 
-Date: 2015-03-18 16:23:36
+Date: 2015-03-20 13:35:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -42,18 +42,18 @@ CREATE TABLE `hak_akses` (
   KEY `fk_hak_akses_to_menu` (`menu_id`),
   CONSTRAINT `fk_hak_akses_to_menu` FOREIGN KEY (`menu_id`) REFERENCES `menu` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_hak_akses_to_role` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of hak_akses
 -- ----------------------------
-INSERT INTO `hak_akses` VALUES ('25', '1', '8');
-INSERT INTO `hak_akses` VALUES ('26', '2', '8');
-INSERT INTO `hak_akses` VALUES ('27', '3', '8');
-INSERT INTO `hak_akses` VALUES ('28', '4', '8');
-INSERT INTO `hak_akses` VALUES ('29', '1', '7');
-INSERT INTO `hak_akses` VALUES ('30', '3', '7');
-INSERT INTO `hak_akses` VALUES ('31', '4', '7');
+INSERT INTO `hak_akses` VALUES ('35', '1', '8');
+INSERT INTO `hak_akses` VALUES ('36', '2', '8');
+INSERT INTO `hak_akses` VALUES ('37', '3', '8');
+INSERT INTO `hak_akses` VALUES ('38', '4', '8');
+INSERT INTO `hak_akses` VALUES ('39', '1', '7');
+INSERT INTO `hak_akses` VALUES ('40', '2', '7');
+INSERT INTO `hak_akses` VALUES ('41', '3', '7');
 
 -- ----------------------------
 -- Table structure for menu
@@ -94,7 +94,6 @@ CREATE TABLE `role` (
 -- ----------------------------
 INSERT INTO `role` VALUES ('7', 'Admin');
 INSERT INTO `role` VALUES ('8', 'Super Admin');
-INSERT INTO `role` VALUES ('9', 'tes');
 
 -- ----------------------------
 -- Table structure for user
@@ -117,4 +116,3 @@ CREATE TABLE `user` (
 -- ----------------------------
 INSERT INTO `user` VALUES ('2', '8', 'reza', 'Muhamad Reza Abdul Rohim', 'reza.wikrama3@gmail.com', 'd0ff542e7f293a6f31d721e5c914442f');
 INSERT INTO `user` VALUES ('3', '7', 'tenyom', 'anggi rahman', 'tenyom@tenyom.com', '3c1ab4f571a43feaed5f8145304083c2');
-INSERT INTO `user` VALUES ('4', '9', 'tes', 'tes', 'tes@tes.com', '20c72e4ce56306e782b7b29e25d24760');
